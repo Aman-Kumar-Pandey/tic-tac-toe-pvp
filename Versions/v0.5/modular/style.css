@@ -1,0 +1,252 @@
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: 1rem;
+      box-sizing: border-box;
+
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      width: min(90vw, 400px);
+      aspect-ratio: 1/1;
+    }
+
+    .cell {
+      aspect-ratio: 1/1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: clamp(2rem, 8vw, 4rem);
+      line-height: 1;
+      cursor: pointer;
+      transition: 0.3s;
+      border-radius: 8px;
+      -webkit-user-select:none;
+      user-select: none;
+      overflow: hidden;
+    }
+
+    .cell:hover {
+      background-color: #555;
+    }
+
+    h2 {
+      margin-top: 1rem;
+      font-size: clamp(1rem, 4vw, 1.5rem);
+    }
+
+    button {
+      margin-top: 0.3rem;
+      padding: 0.6rem 1.2rem;
+      font-size: clamp(0.9rem, 3vw, 1.1rem);
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #666;
+    }
+
+    #myProgress {
+      width: 100%;
+      padding: 0;
+      margin: 5px;
+      text-align: center;
+      position: relative;
+    }
+
+    #myBar {
+      margin: 0;
+      width: 0%;
+      height: 3px;
+      background-color: blue;
+    }
+
+    #yourBar {
+      margin: 0;
+      width: 0%;
+      height: 3px;
+      background-color: red;
+    }
+
+    #Regard {
+      margin: 0 0;
+      padding: 0%;
+      font-size: xx-small;
+      position: absolute;
+      font-style: oblique;
+      font-weight: 200;
+      width: 100%;
+    }
+.menubar{
+  width: 100%;
+  display: flex;
+  top: 10px;
+  right: 10px;
+  position: fixed;
+  z-index: 10;
+
+}
+.container {
+  display: inline-block;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  margin: 6px 0;
+  transition: 0.4s;
+
+}
+
+/* Rotate first bar */
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+/* Fade out the second bar */
+.change .bar2 {opacity: 0;}
+
+/* Rotate last bar */
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  border-top-right-radius: 10px;
+  opacity: 95%;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 15px;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #818181;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 10px;}
+  .sidenav a {font-size: 12px;}
+}
+.optionTab{
+    padding:20px;
+    width:320px;
+    border-radius:12px;
+    box-shadow:0 0 12px black;
+    height: 70vh;
+    width: 60vw;
+}
+.optionTabScreen{
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:#00000088;
+  backdrop-filter: blur(3px);
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+dialog {
+  border: none;
+  border-radius: 10px;
+  padding: 1.5rem;
+  width: 70vw;
+  font-family: system-ui, sans-serif;
+  height: 60vh;
+  overflow-y: visible;
+  scrollbar-width: none;
+  
+}
+dialog button{
+  width: 60%;
+  height: auto;
+  border: none;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+kbd {
+  background: #222;
+  color: #0f0;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.85em;
+}
+
+input {
+  width: 90%;
+  margin-top: 0.8rem;
+  padding: 0.5rem;
+}
+
+.ui-back{
+  background-color: #111;
+  color: #f1f1f1;
+}
+
+.ui-text{
+  color: #f1f1f1;
+}
+
+.ui-panel{
+  background-color: #333;
+}
+
+.ui-button{
+  background-color: #333;
+  color: #f1f1f1;
+}

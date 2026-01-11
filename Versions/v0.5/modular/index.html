@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="ui-back">
+
+<div class="menubar ui-back">
+<div class="container ui-back" onclick="navFunction(this)">
+  <div class="bar1 ui-panel"></div>
+  <div class="bar2 ui-panel"></div>
+  <div class="bar3 ui-panel"></div>
+</div>
+</div>
+
+
+<div id="mySidenav" class="sidenav ui-back">
+  <a href="javascript:void(0)" class="ui-text" onclick="optionFunction()">Options</a>
+  <a href="javascript:void(0)" class="ui-text" onclick="themeImplierOpen()">Theme</a>
+  <a href="javascript:void(0)" class="ui-text" onclick="bonusTheme()">Old School Bonus</a>
+  <a href="javascript:void(0)" class="ui-text" onclick="moreFromUs()">More From Us</a>
+  <a href="javascript:void(0)" class="ui-text" onclick="aboutFunc()">About</a>
+</div>
+
+<div class="optionTabScreen">
+  <div class="optionTab ui-panel">
+
+  </div>
+</div>
+
+  <h1 class="ui-text">Tic Tac Toe</h1>
+
+  <div id="board" class="board ui-back">
+    <div class="cell ui-panel" data-index="0"></div>
+    <div class="cell ui-panel" data-index="1"></div>
+    <div class="cell ui-panel" data-index="2"></div>
+    <div class="cell ui-panel" data-index="3"></div>
+    <div class="cell ui-panel" data-index="4"></div>
+    <div class="cell ui-panel" data-index="5"></div>
+    <div class="cell ui-panel" data-index="6"></div>
+    <div class="cell ui-panel" data-index="7"></div>
+    <div class="cell ui-panel" data-index="8"></div>
+  </div>
+
+  <h2 id="status" class="ui-text">Player X's turn</h2>
+  <button id="reset" class="ui-button">Reset Round</button>
+
+
+<div id="matchUI">
+  <div id="myProgress" class="ui-panel">
+    <p id="Regard" class="ui-text">First to fill the bar wins!</p>
+    <div id="myBar"></div>
+    <div id="yourBar"></div>
+  </div>
+</div>
+
+
+<dialog id="themeDialog" class="ui-back">
+  <form method="dialog">
+    <h3 class="ui-text">Which theme do you want to apply?</h3>
+
+    <ul>
+      <li class="ui-text">Angel  → <kbd>a</kbd></li>
+      <li class="ui-text">Light  → <kbd>l</kbd></li>
+      <li class="ui-text">Carbon → <kbd>c</kbd></li>
+      <li class="ui-text">Dark   → <kbd>d</kbd></li>
+      <li class="ui-text">Hacker → <kbd>h</kbd></li>
+      <li class="ui-text">Blood  → <kbd>b</kbd></li>
+    </ul>
+
+    <p class="ui-text" id="currentThemeText"></p>
+
+    <input type="text" id="themeInput" placeholder="Type 'r' to reset"  autofocus/>
+
+    <menu>
+      <button class="ui-button" value="cancel">Cancel</button>
+      <button class="ui-button" id="applyThemeBtn" value="apply">Apply</button>
+    </menu>
+  </form>
+</dialog>
+
+
+  <audio id="won" src="https://orangefreesounds.com/wp-content/uploads/2025/05/Victory-sound-effect.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
