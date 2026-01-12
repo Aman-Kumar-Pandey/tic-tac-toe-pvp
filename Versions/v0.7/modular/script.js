@@ -105,12 +105,6 @@ if (gameOver && settings.matchMode) {
     resetBtn.textContent = "Restart Match";
     cells.forEach(cell => cell.style.pointerEvents = "none");
 
-    document.getElementsByClassName("board")[0].style.backgroundColor =
-      winner === "X" ? "blue" : "red";
-
-    setTimeout(() => {
-      document.getElementsByClassName("board")[0].style.backgroundColor = "#1e1e1e";
-    }, 1000);
   }
 }
     }
@@ -151,10 +145,17 @@ if (gameOver && settings.matchMode) {
 
       cells.forEach(cell => cell.style.borderRadius = "50%");
       cells.forEach(cell => cell.style.backgroundColor = "purple");
-      setTimeout(() => {
-        cells.forEach(cell => cell.style.borderRadius = "8px");
-        cells.forEach(cell => cell.style.backgroundColor = "#333");
-      }, 600);
+setTimeout(() => {
+  cells.forEach(cell => {
+    cell.style.borderRadius = "8px";
+    cell.style.backgroundColor = ""; // 🔥 clear inline override
+  });
+
+  // 🔁 Re-apply current theme
+  const savedTheme = localStorage.getItem("uiTheme") || "d";
+  applyTheme(savedTheme);
+
+}, 600);
 
       if (Xwidth * progressPerWin >= 100 || Ywidth * progressPerWin >= 100) {
         // Full reset
@@ -259,10 +260,6 @@ const optionActions = {
     onEnable: () => {
       console.log("Match Mode ENABLED");
       const matchui = document.getElementById("matchUI")
-      matchui.style.display = "block";
-      matchui.style.marginTop = "10px";
-      matchui.style.width = "100%";
-
     },
     onDisable: () => {
       console.log("Match Mode DISABLED");
@@ -303,7 +300,6 @@ function optionFunction() {
 
     optionElement.style.marginBottom = "15px";
     optionElement.style.fontSize = "12px";
-    optionElement.style.color = "white";
     optionElement.style.cursor = "pointer";
 
     optionElement.addEventListener("click", () => {
@@ -352,9 +348,12 @@ const currentThemeText = document.getElementById("currentThemeText");
 const themes = {
   a: "Angel",
   l: "Light",
+  i: "Hulk",
   c: "Carbon",
   d: "Dark",
+  e: "Evil",
   h: "Hacker",
+  p: "Pennywise",
   b: "Blood"
 };
 
@@ -364,9 +363,12 @@ const themes = {
 const themeMap = {
   a: { panel: "pink", back: "magenta", text: "blue" },
   l: { panel: "grey", back: "white", text: "black" },
+  i: { panel: "green", back: "purple", text: "black"},
   c: { panel: "gray", back: "black", text: "royalblue" },
   d: { panel: "#333", back: "#111", text: "#f1f1f1" },
-  h: { panel: "#333", back: "#111", text: "#00ff00" },
+  e: { panel: "yellow", back: "#0a0a0a", text: "#ff1e1e" },
+  h: { panel: "#333", back: "#0b0f0c", text: "#00ff00" },
+  p: { panel: "#973636", back: "#fbfae2", text: "#fff200" },
   b: { panel: "white", back: "black", text: "red" }
 };
 
@@ -431,11 +433,210 @@ document.getElementById("applyThemeBtn").addEventListener("click", (e) => {
 });
 
 
+//=========Bonus Theme=============//
 
+function bonusTheme(){
+  //Currently not implemented, I am trying to upload it soon!
+  window.alert("Coming soon!")
+}
 
+//======== More From Us Function ========//
 
+function moreFromUs() {
 
+  let moreFromUsText = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>More From Us</title>
+</head>
 
+<body style="
+  margin:0;
+  padding:20px;
+  font-family:system-ui, sans-serif;
+  background:#0f0f0f;
+  color:#eaeaea;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+">
+
+  <div style="
+    max-width:600px;
+    background:#1a1a1a;
+    padding:24px;
+    border-radius:12px;
+    box-shadow:0 0 20px rgba(0,0,0,0.6);
+  ">
+
+    <h2 style="
+      margin-top:0;
+      text-align:center;
+      letter-spacing:1px;
+    ">
+      More From Us
+    </h2>
+
+    <p style="line-height:1.6;">
+      We don’t just build projects — we build <strong>experiments</strong>.
+    </p>
+
+    <p style="line-height:1.6;">
+      Every project you see is part of a learning loop:
+      build → break → improve.
+      Clean logic, readable code, and full control always come first.
+    </p>
+
+    <p style="line-height:1.6;">
+      What you’ll find here:
+    </p>
+
+    <ul style="line-height:1.8; padding-left:20px;">
+      <li>Interactive games and tools</li>
+      <li>UI and logic experiments</li>
+      <li>Developer-focused utilities</li>
+      <li>Ideas pushed beyond tutorials</li>
+    </ul>
+
+    <p style="line-height:1.6;">
+      This space keeps evolving — sharper logic, stronger systems,
+      and better decisions with every iteration.
+    </p>
+
+    <p style="line-height:1.6;">
+    <ul style="line-height:1.8; padding-left:20px;">
+      <li>Chemistry Explorer, if you want to study elements</li>
+      <li>Tic-Tac-Toe Bot, if you liked this project</li>
+      <li>VoidCode, Ace or Monaco editions</li>
+      <li>Compact text editor in HTML format</li>
+      <li>Live HTML editor, see output quickly with a button</li>
+    </ul>
+    </p>
+
+    <p style="
+      text-align:center;
+      margin-top:24px;
+      font-style:italic;
+      opacity:0.85;
+    ">
+      Stay curious. Keep building.
+    </p>
+
+  </div>
+
+</body>
+</html>
+  `;
+
+  let win = window.open("", "_blank");
+  win.document.write(moreFromUsText);
+  win.document.close();
+}
+
+//=======About Function==========//
+
+//======== About Function ========//
+
+function aboutFunc() {
+
+  // Prevent multiple overlays
+  if (document.getElementById("aboutOverlay")) return;
+
+  // Create overlay
+  const overlay = document.createElement("div");
+  overlay.id = "aboutOverlay";
+
+  overlay.style.position = "fixed";
+  overlay.style.top = "0";
+  overlay.style.left = "0";
+  overlay.style.width = "100%";
+  overlay.style.height = "100%";
+  overlay.style.background = "rgba(0,0,0,0.6)";
+  overlay.style.backdropFilter = "blur(6px)";
+  overlay.style.display = "flex";
+  overlay.style.justifyContent = "center";
+  overlay.style.alignItems = "center";
+  overlay.style.zIndex = "9999";
+
+  // Create content box
+  const box = document.createElement("div");
+
+  box.style.background = "#111";
+  box.style.color = "#f1f1f1";
+  box.style.padding = "24px";
+  box.style.width = "70vw";
+  box.style.maxWidth = "600px";
+  box.style.maxHeight = "80vh";
+  box.style.overflowY = "auto";
+  box.style.borderRadius = "14px";
+  box.style.boxShadow = "0 0 25px rgba(0,0,0,0.8)";
+  box.style.fontFamily = "system-ui, sans-serif";
+
+  box.innerHTML = `
+    <h2 style="margin-top:0; text-align:center;">About Tic Tac Toe</h2>
+
+    <p style="line-height:1.6;">
+      Tic Tac Toe is a classic two-player strategy game where players take turns
+      marking a 3×3 grid with <strong>X</strong> or <strong>O</strong>.
+      The goal is simple — be the first to align three of your marks
+      horizontally, vertically, or diagonally.
+    </p>
+
+    <h3>How to Play</h3>
+    <ul style="line-height:1.7; padding-left:20px;">
+      <li>Player X always starts the game</li>
+      <li>Players take turns selecting empty cells</li>
+      <li>The game ends when a player forms a line of three</li>
+      <li>If the board fills with no winner, the round is a draw</li>
+    </ul>
+
+    <h3>Features</h3>
+    <ul style="line-height:1.7; padding-left:20px;">
+      <li>Clean and responsive user interface</li>
+      <li>Theme system with multiple visual styles</li>
+      <li>Round reset and live status updates</li>
+      <li>Match progress tracking</li>
+    </ul>
+
+    <h3>Why This Game Exists Digitally</h3>
+    <p style="line-height:1.6;">
+      This project was created to explore logic building, UI interaction,
+      and dynamic state handling in a simple yet meaningful way.
+      Turning classic games into electronic form allows us to experiment,
+      improve, and learn through real interaction instead of static examples.
+    </p>
+
+    <p style="line-height:1.6; margin-top:16px;">
+      You can explore more projects and experiments by selecting
+      <strong>“More From Us”</strong> from the sidebar.
+    </p>
+
+    <div style="text-align:center; margin-top:20px;">
+      <button id="closeAboutBtn"
+        style="
+          padding:8px 20px;
+          border:none;
+          border-radius:8px;
+          cursor:pointer;
+          background:#333;
+          color:#fff;
+        ">
+        Close
+      </button>
+    </div>
+  `;
+
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+
+  // Close handler
+  document.getElementById("closeAboutBtn").onclick = () => {
+    overlay.remove();
+  };
+}
 
 
 // ===== APPLY SAVED SETTINGS ON LOAD =====
@@ -455,3 +656,4 @@ Object.keys(settings).forEach(key => {
     applyTheme("d"); // default Dark
   }
 })();
+

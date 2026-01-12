@@ -22,6 +22,7 @@
       gap: 8px;
       width: min(90vw, 400px);
       aspect-ratio: 1/1;
+      border-radius: 8px;
     }
 
     .cell {
@@ -59,9 +60,7 @@
       transition: 0.3s;
     }
 
-    button:hover {
-      background: #666;
-    }
+
 
     #myProgress {
       width: 100%;
@@ -74,14 +73,14 @@
     #myBar {
       margin: 0;
       width: 0%;
-      height: 3px;
+      height: 6px;
       background-color: blue;
     }
 
     #yourBar {
       margin: 0;
       width: 0%;
-      height: 3px;
+      height: 6px;
       background-color: red;
     }
 
@@ -92,6 +91,11 @@
       position: absolute;
       font-style: oblique;
       font-weight: 200;
+      width: 100%;
+    }
+    #matchUI{
+      display: flex;
+      margin-top: 10px;
       width: 100%;
     }
 .menubar{
@@ -250,3 +254,9 @@ input {
   background-color: #333;
   color: #f1f1f1;
 }
+
+
+/*An important point to consider that any color or background color property by CSS is overriden by JS, except those with class
+ names ui-back, ui-text, ui-panel, ui-button !
+ This is intended to make sure that the theme applied by user is working perfectly.
+ */
