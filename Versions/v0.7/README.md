@@ -44,6 +44,8 @@ This version is delivered in **two formats**: a standalone build and a modular b
 - Reset round or entire match  
 - Non-match mode for those playing for fun 
 - Sound effect for wins  
+- High-level customizability
+- Many colour themes for different user choice
 
 ---
 
