@@ -20,10 +20,8 @@ Designed for learning, experimentation, and fun.
 - Player vs Player (X = First Player, O = Second Player)
 - Match progress tracking using progress bars
 - No match mode for those playing for fun
-- Reset round or reset entire match
 - Responsive design for desktop and mobile
-- Highlight winning combination
-- Sound effects on win
+- Sound effects used
 - Customizable theme and features
 - Fully offline, single-file playable
 
@@ -57,3 +55,8 @@ No installation required.
 ## License
 
 Open-source for learning, modification, and experimentation.
+
+
+---
+> 🌐 **Try Live**  
+> Try it here: https://akp-labs.github.io/tic-tac-toe-pvp
