@@ -1,12 +1,7 @@
-# tic-tac-toe-pvp
-Classic Tic-Tac-Toe with new features, round/match progress tracking and responsive design for all devices.
-
-
 # Tic Tac Toe – Two players
 
 A lightweight, browser-based Tic Tac Toe game with adjustable UI.  
 Perfect for beginners exploring **game logic, and DOM manipulation**.  
-
 The project is fully offline-ready, responsive, and playable directly in a modern browser.  
 Designed for learning, experimentation, and fun.
 
@@ -29,7 +24,7 @@ Designed for learning, experimentation, and fun.
 
 ### Repository Structure
 
-All project versions are organized under the `Versions/` directory.  
+All project versions are organized under the `versions/` directory.  
 Each version folder contains its own documentation explaining available formats, features, and usage instructions.
 
 ---
@@ -38,7 +33,7 @@ Each version folder contains its own documentation explaining available formats,
 
 No installation required.  
 
-1. Open a version folder inside `Versions/`   
+1. Open a version folder inside `versions/`   
 2. Open the HTML file there
 3. Play directly in any modern browser  
 
