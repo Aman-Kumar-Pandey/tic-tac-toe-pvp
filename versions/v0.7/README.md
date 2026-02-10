@@ -1,6 +1,6 @@
 # Tic Tac Toe PvP – v0.7
 
-Version 0.5 is a **Non-stable release** of the Tic Tac Toe game.  
+Version 0.7 is a **Non-stable release** of the Tic Tac Toe game.  
 It includes non-match rounds, match rounds with progress tracking, and responsive offline gameplay.
 
 This version is delivered in **two formats**: a standalone build and a modular build.
