@@ -1,20 +1,21 @@
 # Tic Tac Toe – Two players
 
-A lightweight, browser-based Tic Tac Toe game with adjustable UI.  
-Perfect for beginners exploring **game logic, and DOM manipulation**.  
-The project is fully offline-ready, responsive, and playable directly in a modern browser.  
-Designed for learning, experimentation, and fun.
+A lightweight, browser-based Tic-Tac-Toe game built entirely with vanilla web technologies, without relying on external libraries or frameworks. The project focuses on clear structure, readable logic, and direct interaction with the DOM, making it easy to inspect, modify, and extend.
 
-⚠️ Note: This is a client-side game. Bugs, or logic gaps may exist—feel free to explore and contribute.
+The game runs fully offline, adapts smoothly to different screen sizes, and can be played instantly in any modern browser. Its versioning style make it ideal for learning through iteration, experimentation, and controlled breakage—because breaking things is how real understanding forms.
+
+⚠️ Note: This is a purely client-side project. Minor bugs, edge cases, or logic gaps may exist by design, serving as opportunities for exploration, debugging, and improvement.
 
 ---
 
 ## Features
 
 - Classic 3×3 Tic Tac Toe gameplay
-- Player vs Player (X = First Player, O = Second Player)
+- Player vs Player 
+   - X = First Player
+   - O = Second Player
 - Match progress tracking using progress bars
-- No match mode for those playing for fun
+- Optional No-Match Mode for casual play
 - Responsive design for desktop and mobile
 - Sound effects used
 - Customizable theme and features
