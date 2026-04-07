@@ -1,60 +1,159 @@
-# Tic Tac Toe – Two players
+# Tic Tac Toe PvP
 
-A lightweight, browser-based Tic-Tac-Toe game built entirely with vanilla web technologies, without relying on external libraries or frameworks. The project focuses on clear structure, readable logic, and direct interaction with the DOM, making it easy to inspect, modify, and extend.
+A lightweight, browser-based Tic Tac Toe game built using pure HTML, CSS, and JavaScript.
+It focuses on player vs player gameplay, clean DOM-based logic, and a modular structure that keeps the project easy to read, modify, and extend.
 
-The game runs fully offline, adapts smoothly to different screen sizes, and can be played instantly in any modern browser. Its versioning style make it ideal for learning through iteration, experimentation, and controlled breakage—because breaking things is how real understanding forms.
-
-⚠️ Note: This is a purely client-side project. Minor bugs, edge cases, or logic gaps may exist by design, serving as opportunities for exploration, debugging, and improvement.
-
----
-
-## Features
-
-- Classic 3×3 Tic Tac Toe gameplay
-- Player vs Player 
-   - X = First Player
-   - O = Second Player
-- Match progress tracking using progress bars
-- Optional No-Match Mode for casual play
-- Responsive design for desktop and mobile
-- Sound effects used
-- Customizable theme and features
-- Fully offline, single-file playable
+Tic Tac Toe PvP runs fully offline, adapts smoothly to different screen sizes, and can be played instantly in any modern browser. It follows a structured versioning approach with both standalone and modular builds, making it suitable for learning, experimentation, and iterative development.
 
 ---
 
-## Repository Structure
-
-All project versions are organized under the `versions/` directory.  
-Each version folder contains its own documentation explaining available formats, features, and usage instructions.
+⚠️ Disclaimer
+This project is currently under active development. It is not fully stable, and some features may be incomplete or behave inconsistently. Minor bugs, edge cases, or logic gaps may exist and are intentionally left as opportunities for exploration, debugging, and improvement.
 
 ---
 
-## Usage
+## 🚀 Usage
 
-No installation required.  
+### 🟢 Option 1 — Quick Use (Recommended)
 
-1. Clone the repository(or download the specific file(s))
-2. Open a version folder inside `versions/`   
-3. Choose your preferred build
-4. Open the HTML file there
-5. Play directly in any modern browser  
+1. Download `dist/tic-tac-toe-pvp.html`
+2. Open it in any browser
+3. Start playing immediately
 
----
-
-## Technology Stack
-
-- HTML5  
-- CSS3  
-- Vanilla JavaScript (DOM & Minimax AI)  
+* Works offline
+* No installation required
 
 ---
 
-## License
+### 🧪 Option 2 — Development Mode
 
-Open-source for learning, modification, and experimentation.
+1. Clone the repository
+2. Open:
 
+```id="p4qk1a"
+src/index.html
+```
+
+3. Edit files inside the `src/` directory
+4. Build the project when needed:
+
+```id="k9m2zd"
+python scripts/build.py
+```
+
+Recommended for development, customization, and learning.
 
 ---
-> 🌐 **Try Live**  
-> Try it here: https://akpandey-dev.github.io/tic-tac-toe-pvp
+
+## ✨ Features
+
+* Classic 3×3 Tic Tac Toe gameplay
+* Player vs Player mode
+
+  * X = First Player
+  * O = Second Player
+* Detects wins, draws, and ongoing states
+* Highlights winning combinations
+* Match progress tracking using progress bars
+* Reset round or full match
+* Optional non-match mode for casual play
+* Multiple color themes for customization
+* Sound effects for interactions
+* Fully offline and self-contained
+
+---
+
+## 🏗 Project Structure
+
+```id="r7t3lm"
+tic-tac-toe-pvp/
+│
+├── index.html              # Entry / landing page
+│
+├── src/                    # Development source code
+│   ├── index.html
+│   ├── script.js
+│   └── style.css
+│
+├── dist/                   # Final build (for users)
+│   └── tic-tac-toe-pvp.html  # Single-file app
+│
+├── scripts/                # Build tools
+│   └── build.py
+│
+├── README.md
+├── LICENSE
+└── .gitignore
+```
+
+---
+
+### ⚙️ Build System
+
+Run:
+
+```id="u1n8ac"
+python scripts/build.py
+```
+
+This will:
+
+* Combine HTML, CSS, and JavaScript
+* Bundle everything into a single file
+* Output the final build into the `dist/` directory
+
+---
+
+## 🧠 Architecture Overview
+
+This project uses two modes:
+
+### 🟢 Development Mode
+
+* Modular structure inside `src/`
+* Easier debugging and editing
+* Ideal for learning and extending gameplay logic
+
+### 🔵 Production Mode
+
+* Single-file build inside `dist/`
+* Fully portable
+* Offline-ready with no dependencies
+
+---
+
+## 🧰 Technology Stack
+
+* HTML5
+* CSS3
+* Vanilla JavaScript (DOM manipulation)
+
+---
+
+## ⚠️ Limitations
+
+* No online multiplayer support
+* No persistent storage of match history
+* Some features may be incomplete or experimental
+* Browser rendering may vary slightly across environments
+* UI is intentionally minimal for clarity and learning
+
+---
+
+## 🌐 Live Demo
+
+https://akpandey-dev.github.io/tic-tac-toe-pvp
+
+---
+
+## 🤝 Contributing
+
+* Open for learning and experimentation
+* Bugs may exist due to ongoing development
+* Improvements, suggestions, and fixes are welcome
+
+---
+
+## 📜 License
+
+This project is open for learning, modification, and experimentation.
