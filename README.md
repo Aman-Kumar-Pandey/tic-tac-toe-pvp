@@ -12,9 +12,9 @@ This project is currently under active development. It is not fully stable, and 
 
 ---
 
-## 🚀 Usage
+## Usage
 
-### 🟢 Option 1 — Quick Use (Recommended)
+### Option 1 — Quick Use (Recommended)
 
 1. Download `dist/tic-tac-toe-pvp.html`
 2. Open it in any browser
@@ -25,19 +25,19 @@ This project is currently under active development. It is not fully stable, and 
 
 ---
 
-### 🧪 Option 2 — Development Mode
+### Option 2 — Development Mode
 
 1. Clone the repository
 2. Open:
 
-```id="p4qk1a"
+```
 src/index.html
 ```
 
 3. Edit files inside the `src/` directory
 4. Build the project when needed:
 
-```id="k9m2zd"
+```
 python scripts/build.py
 ```
 
@@ -45,7 +45,7 @@ Recommended for development, customization, and learning.
 
 ---
 
-## ✨ Features
+## Features
 
 * Classic 3×3 Tic Tac Toe gameplay
 * Player vs Player mode
@@ -63,9 +63,9 @@ Recommended for development, customization, and learning.
 
 ---
 
-## 🏗 Project Structure
+## Project Structure
 
-```id="r7t3lm"
+```
 tic-tac-toe-pvp/
 │
 ├── index.html              # Entry / landing page
@@ -88,11 +88,11 @@ tic-tac-toe-pvp/
 
 ---
 
-### ⚙️ Build System
+### Build System
 
 Run:
 
-```id="u1n8ac"
+```
 python scripts/build.py
 ```
 
@@ -104,17 +104,17 @@ This will:
 
 ---
 
-## 🧠 Architecture Overview
+## Architecture Overview
 
 This project uses two modes:
 
-### 🟢 Development Mode
+### Development Mode
 
 * Modular structure inside `src/`
 * Easier debugging and editing
 * Ideal for learning and extending gameplay logic
 
-### 🔵 Production Mode
+### Production Mode
 
 * Single-file build inside `dist/`
 * Fully portable
@@ -122,7 +122,7 @@ This project uses two modes:
 
 ---
 
-## 🧰 Technology Stack
+## Technology Stack
 
 * HTML5
 * CSS3
@@ -130,7 +130,7 @@ This project uses two modes:
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 * No online multiplayer support
 * No persistent storage of match history
@@ -140,13 +140,14 @@ This project uses two modes:
 
 ---
 
-## 🌐 Live Demo
+## Live Demo
 
+Try it here:
 https://akpandey-dev.github.io/tic-tac-toe-pvp
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 * Open for learning and experimentation
 * Bugs may exist due to ongoing development
@@ -154,6 +155,6 @@ https://akpandey-dev.github.io/tic-tac-toe-pvp
 
 ---
 
-## 📜 License
+## License
 
 This project is open for learning, modification, and experimentation.
