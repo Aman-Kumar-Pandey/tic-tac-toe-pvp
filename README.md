@@ -30,14 +30,14 @@ This project is currently under active development. It is not fully stable, and 
 1. Clone the repository
 2. Open:
 
-```id="p4qk1a"
+```
 src/index.html
 ```
 
 3. Edit files inside the `src/` directory
 4. Build the project when needed:
 
-```id="k9m2zd"
+```
 python scripts/build.py
 ```
 
@@ -65,7 +65,7 @@ Recommended for development, customization, and learning.
 
 ## 🏗 Project Structure
 
-```id="r7t3lm"
+```
 tic-tac-toe-pvp/
 │
 ├── index.html              # Entry / landing page
@@ -92,7 +92,7 @@ tic-tac-toe-pvp/
 
 Run:
 
-```id="u1n8ac"
+```
 python scripts/build.py
 ```
 
