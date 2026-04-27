@@ -1,3 +1,5 @@
+
+
     let board = ["", "", "", "", "", "", "", "", ""];
     let currentPlayer = "X";
     let gameOver = false;
@@ -7,7 +9,7 @@
     const statusText = document.getElementById("status");
     let Xwidth = 0;
     let Ywidth = 0;
-    const winCombos = [
+    const WIN_COMBINATIONS = [
       [0, 1, 2], [3, 4, 5], [6, 7, 8],
       [0, 3, 6], [1, 4, 7], [2, 5, 8],
       [0, 4, 8], [2, 4, 6]
@@ -63,7 +65,7 @@ function applyTurnIndicator() {
 
 //-----------------------------------------
     function checkWin() {
-      for (let combo of winCombos) {
+      for (let combo of WIN_COMBINATIONS) {
         const [a, b, c] = combo;
         if (board[a] && board[a] === board[b] && board[a] === board[c]) {
         if (settings.highlightWin) {  
@@ -148,7 +150,7 @@ if (gameOver && settings.matchMode) {
 setTimeout(() => {
   cells.forEach(cell => {
     cell.style.borderRadius = "8px";
-    cell.style.backgroundColor = ""; // 🔥 clear inline override
+    cell.style.backgroundColor = ""; // clear inline override
   });
 
   // 🔁 Re-apply current theme
@@ -256,16 +258,29 @@ const optionActions = {
     }
   },
 
-  matchMode: {
-    onEnable: () => {
-      console.log("Match Mode ENABLED");
-      const matchui = document.getElementById("matchUI")
-    },
-    onDisable: () => {
-      console.log("Match Mode DISABLED");
-    document.getElementById("matchUI").style.display = "none";
-    } 
+matchMode: {
+  onEnable: () => {
+    console.log("Match Mode ENABLED");
+    document.getElementById("matchUI").style.display = "flex";
+    document.getElementById("myBar").style.width = (Xwidth * progressPerWin) + "%";
+document.getElementById("yourBar").style.width = (Ywidth * progressPerWin) + "%";
   },
+  onDisable: () => {
+    console.log("Match Mode DISABLED");
+    if (Xwidth !== 0 || Ywidth !== 0){
+    let userScoreSave = prompt("Do you want your progress to be saved?(y/n)")
+    if(userScoreSave && userScoreSave.trim().toLowerCase() == "n"){
+        // Reset progress
+  Xwidth = 0;
+  Ywidth = 0;
+
+  document.getElementById("myBar").style.width = "0%";
+  document.getElementById("yourBar").style.width = "0%";
+    }}
+    
+    document.getElementById("matchUI").style.display = "none";
+  }
+},
 
   turnIndicator: {
     onEnable: () => {
@@ -320,7 +335,7 @@ function optionFunction() {
     optionPopup.appendChild(optionElement);
   });
 
-  // ===== CLEAR SETTINGS =====
+  // CLEAR SETTINGS
   let clearOption = document.createElement("div");
   clearOption.textContent = "🧹 Clear Settings";
   clearOption.style.marginTop = "20px";
@@ -328,11 +343,20 @@ function optionFunction() {
   clearOption.style.color = "#ff6b6b";
   clearOption.style.cursor = "pointer";
 
-  clearOption.addEventListener("click", () => {
-    localStorage.removeItem("gameSettings");
-    settings = { ...defaultSettings };
-    optionFunction();
+clearOption.addEventListener("click", () => {
+  localStorage.removeItem("gameSettings");
+  settings = { ...defaultSettings };
+  Object.keys(settings).forEach(key => {
+    if (settings[key]) {
+      optionActions[key]?.onEnable?.();
+    } else {
+      optionActions[key]?.onDisable?.();
+    }
   });
+
+  optionFunction();
+
+});
 
   optionPopup.appendChild(clearOption);
 }
@@ -404,8 +428,6 @@ function applyTheme(theme) {
   });
 
   currentThemeText.textContent = `Current theme is ${currentTheme}`;
-
-    // ✅ NEW (persistence)
   localStorage.setItem("uiTheme", theme);
 
 }
@@ -449,7 +471,7 @@ function moreFromUs() {
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>More From Us</title>
+  <title>More From Me</title>
 </head>
 
 <body style="
@@ -477,44 +499,44 @@ function moreFromUs() {
       text-align:center;
       letter-spacing:1px;
     ">
-      More From Us
+      More From Me
     </h2>
 
     <p style="line-height:1.6;">
-      We don’t just build projects — we build <strong>experiments</strong>.
+      I build things because I want to see how they work — not just use them.
     </p>
 
     <p style="line-height:1.6;">
-      Every project you see is part of a learning loop:
-      build → break → improve.
-      Clean logic, readable code, and full control always come first.
+      Most of these projects weren’t planned.
+      They started as random ideas, bugs, or “what if I try this?” moments.
     </p>
 
     <p style="line-height:1.6;">
-      What you’ll find here:
+      My usual cycle:
+      <br><strong>break stuff → understand it → rebuild it cleaner</strong>
+    </p>
+
+    <p style="line-height:1.6;">
+      Things I mess around with:
     </p>
 
     <ul style="line-height:1.8; padding-left:20px;">
-      <li>Interactive games and tools</li>
-      <li>UI and logic experiments</li>
-      <li>Developer-focused utilities</li>
-      <li>Ideas pushed beyond tutorials</li>
+      <li>Games with simple rules but tricky logic</li>
+      <li>UI experiments (sometimes good, sometimes cursed)</li>
+      <li>Dev tools I wish existed</li>
+      <li>Weird ideas that refused to leave my brain</li>
     </ul>
 
     <p style="line-height:1.6;">
-      This space keeps evolving — sharper logic, stronger systems,
-      and better decisions with every iteration.
+      Some stuff you might like:
     </p>
 
-    <p style="line-height:1.6;">
     <ul style="line-height:1.8; padding-left:20px;">
-      <li>Chemistry Explorer, if you want to study elements</li>
-      <li>Tic-Tac-Toe Bot, if you liked this project</li>
-      <li>VoidCode, Ace or Monaco editions</li>
-      <li>Compact text editor in HTML format</li>
-      <li>Live HTML editor, see output quickly with a button</li>
+      <li>Chemistry Explorer → learning tool, but not boring</li>
+      <li>Tic Tac Toe Bot → same game, smarter opponent</li>
+      <li>VoidCode → my attempt at a custom coding environment</li>
+      <li>HTML tools → fast, lightweight, no-nonsense editors</li>
     </ul>
-    </p>
 
     <p style="
       text-align:center;
@@ -522,7 +544,7 @@ function moreFromUs() {
       font-style:italic;
       opacity:0.85;
     ">
-      Stay curious. Keep building.
+      Still experimenting. Still figuring things out.
     </p>
 
   </div>
@@ -535,8 +557,6 @@ function moreFromUs() {
   win.document.write(moreFromUsText);
   win.document.close();
 }
-
-//=======About Function==========//
 
 //======== About Function ========//
 
@@ -602,7 +622,7 @@ function aboutFunc() {
     </ul>
 
     <h3>Why This Game Exists Digitally</h3>
-    <p style="line-height:1.6;">
+  <p style="line-height:1.6;">
       This project was created to explore logic building, UI interaction,
       and dynamic state handling in a simple yet meaningful way.
       Turning classic games into electronic form allows us to experiment,
@@ -613,9 +633,9 @@ function aboutFunc() {
       You can explore more projects and experiments by selecting
       <strong>“More From Us”</strong> from the sidebar.
     </p>
-
+   
     <div style="text-align:center; margin-top:20px;">
-      <button id="closeAboutBtn"
+      <button id="closeAboutBtn"  
         style="
           padding:8px 20px;
           border:none;
@@ -641,7 +661,7 @@ function aboutFunc() {
 
 // ===== APPLY SAVED SETTINGS ON LOAD =====
 Object.keys(settings).forEach(key => {
-  if (settings[key]) {
+  if (settings[key]){
     optionActions[key]?.onEnable?.();
   } else {
     optionActions[key]?.onDisable?.();
@@ -657,3 +677,7 @@ Object.keys(settings).forEach(key => {
   }
 })();
 
+
+
+// This UI could later be repurposed as a web-engine for multiple games.
+  
